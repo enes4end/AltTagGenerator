@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>SEO Alt Tag Generator</title>
+  <link rel="stylesheet" href="/style.css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="main-app">
+    <div class="main-card">
+      <h1>
+        <span class="app-logo" aria-label="AI">🤖</span>
+        SEO Alt Tag Generator
+      </h1>
+      <p class="subtitle">Upload a product image, add details, and generate a natural, SEO-optimized, and translatable alt tag for your web store.</p>
+      <form id="altForm" autocomplete="off">
+        <section class="step-section">
+          <div class="step-title">
+            <span class="step-circle">1</span>
+            <span>Upload product image</span>
+          </div>
+          <div class="material-field">
+            <div id="imageDropArea" class="image-drop-area" tabindex="0">
+              <span id="imageDropText">
+                <span class="img-upload-icon">🖼️</span>
+                <span class="img-upload-label">Drag & drop or click to select an image</span>
+              </span>
+              <input type="file" id="image" name="image" accept="image/*" required style="display:none;" />
+              <img id="previewImg" src="" alt="" style="display:none;"/>
+            </div>
+          </div>
+        </section>
+
+        <section class="step-section">
+          <div class="step-title">
+            <span class="step-circle">2</span>
+            <span>Enter product details</span>
+          </div>
+          <div class="double-fields">
+            <div class="material-field">
+              <label for="name">Product Name <span class="req-star">*</span></label>
+              <input type="text" id="name" name="name" required maxlength="100"/>
+            </div>
+            <div class="material-field">
+              <label for="brand">Brand</label>
+              <input type="text" id="brand" name="brand" maxlength="50"/>
+            </div>
+          </div>
+          <div class="double-fields">
+            <div class="material-field">
+              <label for="weight">Pack Size <span class="req-star">*</span></label>
+              <input type="text" id="weight" name="weight" required maxlength="30"/>
+            </div>
+            <div class="material-field">
+              <label for="flavor">Flavor</label>
+              <input type="text" id="flavor" name="flavor" maxlength="50"/>
+            </div>
+          </div>
+        </section>
+        <div class="action-row">
+          <button type="submit" id="submitBtn" class="material-btn main-action-btn">Generate Alt Tag</button>
+          <div id="spinner" class="spinner" style="display:none;"></div>
+        </div>
+      </form>
+
+      <div id="resultBox" class="result-box" style="display:none;">
+        <div class="section-label">
+          <span class="section-icon">📝</span> Alt Tag Result
+        </div>
+        <div class="alt-text-container">
+          <textarea id="altText" readonly></textarea>
+        </div>
+        <div class="alt-meta-row">
+          <span id="charCount" class="char-count"></span>
+        </div>
+        <div class="result-actions">
+          <button id="copyBtn" class="material-btn">Copy</button>
+          <button id="rerunBtn" class="material-btn">Rerun</button>
+          <button id="translateBtn" class="material-btn main-action-btn">Translate</button>
+        </div>
+      </div>
+
+      <div id="translationsBox" class="translations-box" style="display:none;">
+        <div class="section-label">
+          <span class="section-icon">🌎</span> Translations
+        </div>
+        <div id="translations"></div>
+      </div>
+
+      <div id="errorBox" class="error-box" style="display:none;"></div>
+      <div id="csvWarning" class="csv-warning" style="display:none;">
+        <span>⚠️ The word-translations.csv file has changed. Please restart the app to use the updated translations.</span>
+      </div>
+    </div>
+    <footer>
+      <span class="footer-note">Built by Enes.</span>
+    </footer>
+  </div>
+  <script src="/script.js"></script>
+</body>
+</html>
